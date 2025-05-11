@@ -1,13 +1,51 @@
-# MLops_project
-2176073 김승연
+# Diabetes Prediction Using AutoML (MLjar)
 
-## Problem Definition
-이 프로젝트의 목적은 건강 관련 특성(bmi, HbA1c_level, blood_glucose_level) 세 가지 feature를 기반으로 당뇨병인지(diabetes = 1), 아닌지 (diabetes = 0)을 예측하는 binary classification model을 구축하는 것이다. 특히 간단한 모델인 logistic regression를 사용해 학습시키고 정확도를 측정하며, 개별 환자에 대한 예측도 수행한다.
+## 📌 Project Description
 
-## Dataset Description
-이 데이터셋은 환자의 당뇨병 여부(양성 또는 음성)와 함께 의료 및 인구통계학적 데이터를 포함하고 있다.
-이 데이터셋은 나이, 성별, 체질량지수(BMI), 고혈압 여부(hypertension), 심장 질환 여부(heart disease), 흡연 이력(smoking history), 당화혈색소 수치(HbA1c level ), 혈당 수치(blood glucose level) 등의 다양한 특성으로 구성되어 있다.
-Target : diabetes (0: 당뇨가 아님 /1: 당뇨임)
-사용한 Features: bmi, HbA1c_level, blood_glucose_level 
+This project aims to build a **binary classification model** that predicts whether a patient has diabetes (1) or not (0), based on three key health features:
+- Body Mass Index (BMI)
+- HbA1c level
+- Blood glucose level
 
+To automate model selection and evaluation, we used **MLjar-supervised**, a powerful AutoML framework. The goal was to identify the most suitable model with **high recall**, which is critical in medical diagnostics to avoid missed diagnoses.
 
+---
+
+## 🧪 Models Evaluated
+The following models were trained and evaluated using the `Explain` mode of MLjar with 5-fold cross-validation:
+- Random Forest
+- XGBoost
+- Neural Network
+
+### 🎯 Key Evaluation Metrics
+- Accuracy
+- Precision
+- Recall
+- F1-score
+- AUC
+- Confusion Matrix
+
+> 📌 **Recall** was treated as the most important metric due to the medical nature of the task.
+
+---
+
+## ⚙️ Development Environment
+
+- **OS**: Ubuntu 24.04 (AWS EC2)
+- **Instance**: t2.micro (1 vCPU)
+- **Storage**: EBS volume (20 GiB)
+- **Python**: 3.12.3 with `venv` virtual environment
+- **Access**: SSH from macOS Terminal
+
+All required libraries and versions are listed in [`requirements.txt`](./requirements.txt)
+
+---
+
+## 🚀 How to Run
+
+```bash
+# Install required packages
+pip install -r requirements.txt
+
+# Run the AutoML training script
+python automl_multiple.py
