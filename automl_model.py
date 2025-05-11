@@ -18,7 +18,7 @@ automl_rf = AutoML(
     algorithms=['Random Forest'],
     train_ensemble=False,
     stack_models=False,
-    eval_metric='auc',
+    eval_metric='f1',
     validation_strategy=validation,
     explain_level=2
 )
@@ -32,7 +32,7 @@ automl_xgb = AutoML(
     algorithms=['Xgboost'],
     train_ensemble=False,
     stack_models=False,
-    eval_metric='auc',
+    eval_metric='f1',
     validation_strategy=validation,
     explain_level=2
 )
@@ -46,7 +46,7 @@ automl_nn = AutoML(
     algorithms=['Neural Network'],
     train_ensemble=False,
     stack_models=False,
-    eval_metric='auc',
+    eval_metric='f1',
     validation_strategy=validation,
     explain_level=2
 )
